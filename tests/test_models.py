@@ -45,3 +45,16 @@ def test_daily_min_string():
 
     with pytest.raises(TypeError):
         error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
+
+
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        ([ [0, 0, 0], [0, 0, 0], [0, 0, 0] ], [0, 0, 0]),
+        ([ [np.nan, 1, 1], [1, 1, 1], [1, 1, 1] ], [np.nan, 0, 0]),
+    ])
+def test_daily_std_Berend(test, expected):
+    """Test for manual function by Benjamin to compute the std-dev."""
+    from inflammation.models import daily_std
+
+    npt.assert_array_equal(daily_std(test), np.array(expected))
