@@ -43,3 +43,12 @@ def daily_min(data):
     :returns: 1D array containing the min of the data along the columns
     """
     return np.min(data, axis=0)
+
+
+def daily_std(data):
+    """Calculate the daily max of a 2D inflammation data array
+
+    :param data: 2d array containing the inflamation data
+    :returns: 1D array containing the std of the data along the columns
+    """
+    return np.std(data, axis=0)
